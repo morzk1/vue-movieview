@@ -7,11 +7,11 @@
 
     </div>
     <div class="contentMain">
-      <div>
-            <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName" :movieTime="item.movieTime" :movieImg="item.movieImg"></movies-list><!--引入MovieList-->
-        <!-- <div style="flex:auto">
-
-        </div> -->
+      <div class="wrapper">
+        <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName" :movieTime="item.movieTime" :movieImg="item.movieImg"></movies-list><!--引入MovieList-->
+      </div>
+      <div class="wrapperPages">
+        <Page :total="movieItems.length" page-size="12" show-elevator />
       </div>
     </div>
     <div class="max">
@@ -79,5 +79,13 @@ export default {
   .contentText{
     font-size: 15px;
     padding-top: 20px;
+  }
+  .contentMain > .wrapper::after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .wrapperPages{
+    margin-bottom: 10px;
   }
 </style>

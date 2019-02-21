@@ -56,7 +56,19 @@ const routes = [
   },
   {
     path: '/admin',
-    component: AdminPage
+    component: AdminPage,
+    beforeEnter: (to, from, next) => {
+      // ...
+      let isAdmin = localStorage.getItem('userAdmin')
+      console.log(isAdmin)
+      if (isAdmin == null || isAdmin === 0) {
+        alert('Access Denied')
+        router.push({path: '/'})
+      } else {
+        next()
+      }
+    }
+
   }
 ]
 const router = new Router({
