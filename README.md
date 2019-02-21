@@ -1,6 +1,7 @@
 # movieview
 
 > A Vue.js project
+>>view http://v.cumt-cs.cn/
 
 ## Build Setup
 
