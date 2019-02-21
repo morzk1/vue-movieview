@@ -1,5 +1,5 @@
 # movieview
-###简单电影网站:vue-movieview-frontend
+简单电影网站:vue-movieView的前端部分
 > A Vue.js project  
 >view http://v.cumt-cs.cn/  
 >>./src/commen/commen.js修改api地址  
@@ -7,7 +7,7 @@
 >>./src/router/index.js为路由配置  
 >>./src/main.js有部分依赖引入  
 >>./src/assets/目录下为静态图片等  
->仅供学习使用, 还有很多问题, 欢迎大佬留言指正
+仅供学习使用, 还有很多问题, 欢迎大佬留言指正
 
 ## Build Setup
 
