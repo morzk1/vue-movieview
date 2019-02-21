@@ -1,8 +1,7 @@
 # movieview
 
 > A Vue.js project
->view http://v.cumt-cs.cn/
->./src/commen/commen.js修改api地址
+>view http://v.cumt-cs.cn/ ./src/commen/commen.js修改api地址
 >./src/components与.src/pages分别是组件目录和页面目录
 >./src/router/index.js为路由配置
 >./src/main.js有部分依赖引入
