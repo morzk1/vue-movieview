@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 <!--此页面需要-->
   <div class="container">
     <div>

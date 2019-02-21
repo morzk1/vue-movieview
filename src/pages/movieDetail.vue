@@ -1,21 +1,37 @@
-<template lang="html">
+<template >
 <!--此页面需要-->
 
   <div class="container">
     <div>
       <movie-index-header ></movie-index-header>   <!--  展示引入的header组件 -->
     </div>
+    <div class="userMessage">
+      <user-message></user-message>
+    </div>
     <div class="title-time" style="padding: 20px;">
       <h1>{{detail.movieName}}</h1>
       <h4>{{detail.movieTime}}发布</h4>
+      <div class="wrapper">
+        <div class="buttons">
+          <div class="down" @click="movieDownload()">
+            <Icon type="md-download" size="14"/>
+            <span>下载</span>
+          </div>
+          <div class="thumb" @click="support()">
+            <Icon type="md-thumbs-up" size="14"/>{{detail.movieNumSuppose}}
+          </div>
+        
+          
+        </div>
+      </div>
     </div>
-
+    
 
     <div class="contentMain">
-    <player :detail="detail">
+      <player :detail="detail">
 
-    </player>
-
+      </player>
+    
 
 
 
@@ -37,6 +53,8 @@ import CommonFooter from '../components/commonFooter'
 import Comment  from '../components/Comment.vue'
 import serverSrc from '../commen/commen.js'
 import Player from '../components/player'
+import UserMessage from '../components/UserMessage'
+
 let movie_id=0
 export default {
   name: 'MovieDetail',
@@ -51,7 +69,8 @@ export default {
     CommonFooter,
     Comment,
     Player,
-
+    UserMessage,
+    
   },
 
 //  这里用于获取数据，需要获得主页推荐，主页新闻列表，主页电影列表
@@ -72,7 +91,7 @@ export default {
       this.$http.post(serverSrc.src + '/movies/support',{id:movie_id}).then((data1)=>{
         let data_temp= data1.body
         let that=this
-        console.log(data_temp)
+        // console.log(data_temp)
         if(data_temp.status===0){
           this.$http.post(serverSrc.src + '/movies/showNumber',{id:movie_id}).then((data2)=>{
 //            console.log(data2)
@@ -110,6 +129,7 @@ export default {
     min-height:100vh;
     display:flex;
     flex-flow:column;
+    background-color: #f0f0f0;
 
   }
   .contentMain{
@@ -121,4 +141,28 @@ export default {
      margin-top:5px;
   }
  
+ .wrapper{
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column;
+}
+.buttons{
+  display: flex; 
+  flex-direction: row;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+  padding:0;
+  
+}
+.down,
+.thumb{
+  padding: 5px;
+
+}
+.down:hover,.thumb:hover{
+  color:rgb(0, 162, 255);
+}
+
 </style>

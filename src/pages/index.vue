@@ -1,6 +1,6 @@
-<template lang="html">
+<template>
 <!--此页面需要-->
-  <div class="container">
+<div class="container">
     <div>
         <movie-index-header ></movie-index-header>   <!--  展示引入的header组件 -->
     </div>
@@ -10,14 +10,14 @@
     <div>
         <index-header-pic :headerItems="headerItems"></index-header-pic>
     </div>
-    <div class="container" style="display: flex; flex-flow: row wrap; justify-content: space-between; box-sizing: border-box;">
+    <!-- <div class="container" style="display: flex; flex-flow: row wrap; justify-content: space-between; box-sizing: border-box;">
       <Card style="display: flex; flex-direction: column;  margin:0px 10px 0px 10px; flex:8;">
         <p slot="title">
             <Icon type="ios-film-outline"></Icon>
             电影
         </p>
           <div style="display: flex;flex-flow: row wrap; justify-content: center;">
-              <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieImg="item.movieImg" :movieName="item.movieName" :movieTime="item.movieTime"></movies-list><!--引入MovieList-->
+              <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieImg="item.movieImg" :movieName="item.movieName" :movieTime="item.movieTime"></movies-list>
 
           </div>
           
@@ -28,17 +28,26 @@
             新闻
         </p>
           <ul class="cont-ul">
-            <!-- list组件展示区，并用v-for来将数据遍历，:xx="xxx" 是用来给子组件传递数据的 -->
             <news-list v-for="item in newsItems" :key="item._id" :id="item._id"  :articleTitle="item.articleTitle" :articleTime="item.articleTime"></news-list>
           </ul>
       </Card>
-    </div>
+    </div> -->
     <div class="contentMain" >
+      <div class="nav">
+        <p>推荐 ></p>
+      </div>
+      <div class="leftbox">
+        <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieImg="item.movieImg" :movieName="item.movieName" :movieTime="item.movieTime"></movies-list>
 
-  </div>
-     <div class="footerDiv">
-        <common-footer></common-footer>  <!--  展示引入的footer组件 -->
-     </div> 
+      </div>
+      <div class="rightbox">
+        <!-- <news-list v-for="item in newsItems" :key="item._id" :id="item._id"  :articleTitle="item.articleTitle" :articleTime="item.articleTime"></news-list> -->
+
+      </div>
+    </div>
+    <div class="footerDiv">
+      <common-footer></common-footer>  <!--  展示引入的footer组件 -->
+    </div> 
 </div>
 </template>
 <script>
@@ -103,25 +112,23 @@ export default {
   .contentMain{
     padding-top: 15px;
     flex:1;
-  }
-/*  
-  .userMessage{
-    margin-top:0px;
-    margin-left: 0px;
-  }
-  .contentPic{
-    padding-top:5px;
-  }
-
-  .cont-ul {
-    padding-top: 0.5rem;
+    width: 100%;
     background-color: #fff;
+   
   }
-  .cont-ul::after {
-    content: '';
+  .contentMain > .nav{
+    text-align: left;
+    padding-left: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .contentMain > .leftbox {
+
+  }
+  .contentMain > .leftbox::after{
+    content: "";
     display: block;
     clear: both;
-    width: 0;
-    height: 0;
-  }  */
+  }
+
 </style>

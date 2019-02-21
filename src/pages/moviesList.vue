@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
 <!--此页面需要-->
   <div class="container">
     <div>
@@ -7,7 +7,7 @@
 
     </div>
     <div class="contentMain">
-      <div style="display: flex;flex-flow: row wrap;justify-content: center; ">
+      <div>
             <movies-list v-for="item in movieItems" :key="item._id" :id="item._id" :movieName="item.movieName" :movieTime="item.movieTime" :movieImg="item.movieImg"></movies-list><!--引入MovieList-->
         <!-- <div style="flex:auto">
 
@@ -70,7 +70,11 @@ export default {
   }
   .contentMain{
     padding-top: 10px;
+    background-color: #fff;
+  }
+  .max{
     flex:1;
+
   }
   .contentText{
     font-size: 15px;

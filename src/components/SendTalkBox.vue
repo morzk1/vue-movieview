@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 <div>
   <div style="padding: 10px">
     <Input v-model="toUserName" placeholder="发送用户名" size="small" style="width:80%;" />

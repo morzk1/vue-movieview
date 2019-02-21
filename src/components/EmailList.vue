@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 <div class="message">
   <Card>
     <p><h3>{{title}}</h3></p>

@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
     <!--此页面需要-->
   <div class="container">
     <div>
@@ -116,5 +116,7 @@ export default {
 </script>
 
 <style scoped>
-
+.MainContainer{
+  background-color: #fff;
+}
 </style>
